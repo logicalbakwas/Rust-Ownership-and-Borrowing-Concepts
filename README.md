@@ -8,7 +8,7 @@ I've created a set of exercises for you to practice Rust's ownership and borrowi
 
 This exercise demonstrates how ownership is transferred when passing a variable to a function.
 
-## E1
+# E1
 
 Now, let's go through what we've done in Exercise 1:
 
@@ -29,7 +29,7 @@ This demonstrates how Rust's ownership system prevents use of variables after th
 
 Here, you'll practice borrowing a value without taking ownership.
 
-## E2
+# E2
 
 Now, let's go through what we've done in Exercise 2:
 
