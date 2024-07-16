@@ -117,6 +117,39 @@ You'll see that Rust prevents this potential data race at compile-time.
 
 This exercise shows how functions can take ownership and return values.
 
+
+# E5
+
+Let's break down what we've done in Exercise 5:
+
+We defined a function string_length that takes ownership of a String and returns its length as a usize.
+Inside string_length, we calculate the length, and then the owned String is dropped as it goes out of scope.
+In main, we create a String called my_string.
+We call string_length(my_string), which moves ownership of my_string into the function.
+We store the returned length in the length variable.
+We have a commented-out line that tries to use my_string after it's been moved.
+Finally, we print the length.
+
+Key points to note:
+
+The string_length function takes ownership of the String (not a reference).
+Once my_string is passed to string_length, it can no longer be used in main.
+The function returns a new value (usize) which we can use.
+This pattern is common when you want to consume a value and produce something else.
+
+To see this in action and experiment further:
+
+Run the code as is. It should compile and run without issues.
+Uncomment the line // println!("My string is: {}", my_string); and try to compile the code. You'll see an error because my_string has been moved and is no longer available.
+If you wanted to keep the original string, you could modify string_length to take a reference instead:
+rustCopyfn string_length(s: &String) -> usize {
+    s.len()
+}
+And call it with let length = string_length(&my_string);. This would allow you to use my_string after the function call.
+
+This exercise demonstrates how Rust's ownership system ensures memory safety by preventing use of moved values, while still allowing flexible patterns of data handling.
+
+
 ## Instructions
 
 To practice, try implementing these exercises one by one. After each implementation, compile your code and see if it works as expected. If you encounter any errors, try to understand why they occur and how to fix them.
