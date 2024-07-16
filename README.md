@@ -117,7 +117,6 @@ You'll see that Rust prevents this potential data race at compile-time.
 
 This exercise shows how functions can take ownership and return values.
 
-
 # E5
 
 Let's break down what we've done in Exercise 5:
@@ -143,13 +142,16 @@ Run the code as is. It should compile and run without issues.
 Uncomment the line // println!("My string is: {}", my_string); and try to compile the code. You'll see an error because my_string has been moved and is no longer available.
 If you wanted to keep the original string, you could modify string_length to take a reference instead:
 rustCopyfn string_length(s: &String) -> usize {
-    s.len()
+s.len()
 }
 And call it with let length = string_length(&my_string);. This would allow you to use my_string after the function call.
 
 This exercise demonstrates how Rust's ownership system ensures memory safety by preventing use of moved values, while still allowing flexible patterns of data handling.
 
-
 ## Instructions
 
 To practice, try implementing these exercises one by one. After each implementation, compile your code and see if it works as expected. If you encounter any errors, try to understand why they occur and how to fix them.
+
+# Congratulations
+
+Congratulations on completing all five exercises! You've covered a wide range of Rust's ownership and borrowing concepts.
