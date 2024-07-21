@@ -60,23 +60,24 @@ This exercise shows how to mutably borrow a value to modify it.
 Let's break down what we've done in Exercise 3:
 
 1. We created a mutable vector of integers called `numbers` using `let mut numbers = vec![1, 2, 3, 4, 5];`.
-2. We defined a function add_element that takes a mutable reference to a Vec<i32> (denoted by &mut Vec<i32>). This allows the function to modify the borrowed vector.
-Inside add_element, we use v.push(6) to add a new element to the vector.
-We call add_element(&mut numbers), passing a mutable reference to our vector.
-After the function call, we print the vector to see the changes.
+2. We defined a function `add_element` that takes a mutable reference to a `Vec<i32>` (denoted by `&mut Vec<i32>`). This allows the function to modify the borrowed vector.
+3. Inside `add_element`, we use `v.push(6)` to add a new element to the vector.
+4. We call `add_element(&mut numbers)`, passing a mutable reference to our vector.
+5. After the function call, we print the vector to see the changes.
 
 Key points to note:
 
-The mut keyword is used both when declaring the vector (let mut numbers) and when passing it to the function (&mut numbers).
-The function parameter v: &mut Vec<i32> indicates that we're borrowing the vector mutably, allowing us to modify it.
-After calling the function, the changes made to the vector are visible in the main function.
+- The `mut` keyword is used both when declaring the vector (`let mut numbers`) and when passing it to the function (`&mut numbers`).
+- The function parameter `v: &mut Vec<i32>` indicates that we're borrowing the vector mutably, allowing us to modify it.
+- After calling the function, the changes made to the vector are visible in the main function.
 
 This demonstrates how mutable borrowing allows us to modify a value in a function without taking full ownership, and have those modifications persist outside the function.
+
 To see this in action:
 
-Copy this code and run it. It should compile and run without issues.
-You'll see that the program prints the vector both inside the function (after adding an element) and in the main function, showing that the modification persists.
-Try removing the mut keyword from either the vector declaration or the function call, and observe the compilation errors you get.
+1. Copy this code and run it. It should compile and run without issues.
+2. You'll see that the program prints the vector both inside the function (after adding an element) and in the main function, showing that the modification persists.
+3. Try removing the `mut` keyword from either the vector declaration or the function call, and observe the compilation errors you get.
 
 ### Multiple Borrows
 
