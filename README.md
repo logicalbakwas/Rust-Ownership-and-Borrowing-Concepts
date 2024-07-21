@@ -35,21 +35,21 @@ Now, let's go through what we've done in Exercise 2:
 
 1. We created a vector of integers called `numbers`.
 2. We defined a function `print_length` that takes a reference to a `Vec<i32>` (denoted by `&Vec<i32>`). This means it borrows the vector without taking ownership.
-We called print_length(&numbers), passing a reference to our vector.
-After the function call, we print the vector itself.
+3. We called `print_length(&numbers)`, passing a reference to our vector.
+4. After the function call, we print the vector itself.
 
 Key points to note:
 
-The & in the function parameter v: &Vec<i32> indicates that we're borrowing the vector, not taking ownership.
-When calling the function, we use &numbers to create a reference to our vector.
-Because we only borrowed the vector, we can still use it in main after the function call.
+- The `&` in the function parameter `v: &Vec<i32>` indicates that we're borrowing the vector, not taking ownership.
+- When calling the function, we use `&numbers` to create a reference to our vector.
+- Because we only borrowed the vector, we can still use it in `main` after the function call.
 
 This demonstrates how borrowing allows us to use a value in a function without moving ownership, which lets us continue using the value in the original scope.
 To see this in action:
 
-Copy this code and run it. It should compile and run without issues.
-You'll see that the program prints both the length of the vector and the vector itself.
-Try removing the & from both the function definition and the function call, and observe the compilation errors you get.
+1. Copy this code and run it. It should compile and run without issues.
+2. You'll see that the program prints both the length of the vector and the vector itself.
+3. Try removing the `&` from both the function definition and the function call, and observe the compilation errors you get.
 
 ### Mutable Borrowing
 
@@ -59,8 +59,8 @@ This exercise shows how to mutably borrow a value to modify it.
 
 Let's break down what we've done in Exercise 3:
 
-We created a mutable vector of integers called numbers using let mut numbers = vec![1, 2, 3, 4, 5];.
-We defined a function add_element that takes a mutable reference to a Vec<i32> (denoted by &mut Vec<i32>). This allows the function to modify the borrowed vector.
+1. We created a mutable vector of integers called `numbers` using `let mut numbers = vec![1, 2, 3, 4, 5];`.
+2. We defined a function add_element that takes a mutable reference to a Vec<i32> (denoted by &mut Vec<i32>). This allows the function to modify the borrowed vector.
 Inside add_element, we use v.push(6) to add a new element to the vector.
 We call add_element(&mut numbers), passing a mutable reference to our vector.
 After the function call, we print the vector to see the changes.
