@@ -12,8 +12,8 @@ This exercise demonstrates how ownership is transferred when passing a variable 
 
 Now, let's go through what we've done in Exercise 1:
 
-We created a String variable called name and initialized it with "Alice".
-We defined a function print_name that takes ownership of a String and prints it.
+We created a "String" variable called "name" and initialized it with "Alice".
+We defined a function "print_name" that takes ownership of a "String" and prints it.
 We called print_name(name), which moves ownership of name into the function.
 The last line is commented out because it would cause a compilation error. Once name is moved into print_name, it can no longer be used in main.
 
