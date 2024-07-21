@@ -110,6 +110,7 @@ To see this in action and experiment further:
 1. Run the code as is. It should compile and run without issues.
 2. Try to call `print_length(&greeting)` immediately after `add_world(&mut greeting)`. It will work because the mutable borrow has ended.
 3. Try to create a mutable borrow that overlaps with an immutable borrow. For example, add these lines before calling `add_world`:
+
 - `let ref1 = &greeting;
 let ref2 = &mut greeting; // This will cause a compile-time error`
 
@@ -123,13 +124,13 @@ This exercise shows how functions can take ownership and return values.
 
 Let's break down what we've done in Exercise 5:
 
-We defined a function string_length that takes ownership of a String and returns its length as a usize.
-Inside string_length, we calculate the length, and then the owned String is dropped as it goes out of scope.
-In main, we create a String called my_string.
-We call string_length(my_string), which moves ownership of my_string into the function.
-We store the returned length in the length variable.
-We have a commented-out line that tries to use my_string after it's been moved.
-Finally, we print the length.
+1. We defined a function `string_length` that takes ownership of a `String` and returns its length as a `usize`.
+2. Inside `string_length`, we calculate the length, and then the owned `String` is dropped as it goes out of scope.
+3. In `main`, we create a `String` called `my_string`.
+4. We call `string_length(my_string)`, which moves ownership of `my_string` into the function.
+5. We store the returned `length` in the length variable.
+6. We have a commented-out line that tries to use `my_string` after it's been moved.
+7. Finally, we print the length.
 
 Key points to note:
 
