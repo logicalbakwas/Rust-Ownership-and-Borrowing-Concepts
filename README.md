@@ -87,31 +87,32 @@ This demonstrates how you can have multiple immutable borrows or one mutable bor
 
 Let's break down what we've done in Exercise 4:
 
-We created a mutable String called greeting with the initial value "Hello".
-We defined two functions:
+1. We created a mutable `String` called `greeting` with the initial value "Hello".
+2. We defined two functions:
 
-print_length takes an immutable reference (&String) and prints the string's length.
-add_world takes a mutable reference (&mut String) and appends " World!" to the string.
+- `print_length` takes an immutable reference (`&String`) and prints the string's length.
+- `add_world` takes a mutable reference (`&mut String`) and appends " World!" to the string.
 
-We first call print_length(&greeting), passing an immutable reference.
-Then we call add_world(&mut greeting), passing a mutable reference.
-Finally, we print the modified greeting in the main function.
+3. We first call `print_length(&greeting)`, passing an immutable reference.
+4. Then we call `add_world(&mut greeting)`, passing a mutable reference.
+5. Finally, we print the modified `greeting` in the main function.
 
 Key points to note:
 
-The print_length function only needs to read the string, so it takes an immutable reference.
-The add_world function needs to modify the string, so it takes a mutable reference.
-Rust allows us to have either multiple immutable borrows or one mutable borrow at a time, but not both simultaneously.
-The mutable borrow in add_world is completed before we use greeting again in the final println!, so there's no conflict.
+- The `print_length` function only needs to read the string, so it takes an immutable reference.
+- The `add_world` function needs to modify the string, so it takes a mutable reference.
+- Rust allows us to have either multiple immutable borrows or one mutable borrow at a time, but not both simultaneously.
+- The mutable borrow in `add_world` is completed before we use `greeting` again in the final `println!`, so there's no conflict.
 
 This demonstrates how Rust's borrow checker ensures memory safety by preventing data races at compile-time.
 To see this in action and experiment further:
 
-Run the code as is. It should compile and run without issues.
-Try to call print_length(&greeting) immediately after add_world(&mut greeting). It will work because the mutable borrow has ended.
-Try to create a mutable borrow that overlaps with an immutable borrow. For example, add these lines before calling add_world:
-rustCopylet ref1 = &greeting;
-let ref2 = &mut greeting; // This will cause a compile-time error
+1. Run the code as is. It should compile and run without issues.
+2. Try to call `print_length(&greeting)` immediately after `add_world(&mut greeting)`. It will work because the mutable borrow has ended.
+3. Try to create a mutable borrow that overlaps with an immutable borrow. For example, add these lines before calling `add_world`:
+- `let ref1 = &greeting;
+let ref2 = &mut greeting; // This will cause a compile-time error`
+
 You'll see that Rust prevents this potential data race at compile-time.
 
 ### Ownership and Functions
