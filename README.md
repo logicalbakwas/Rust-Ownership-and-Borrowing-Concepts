@@ -12,16 +12,16 @@ This exercise demonstrates how ownership is transferred when passing a variable 
 
 Now, let's go through what we've done in Exercise 1:
 
-1. We created a "String" variable called ``name`` and initialized it with ``Alice``.
-2. We defined a function ``print_name`` that takes ownership of a ``String`` and prints it.
-3. We called ``print_name(name)``, which moves ownership of ``name`` into the function.
-4. The last line is commented out because it would cause a compilation error. Once ``name`` is moved into ``print_name``, it can no longer be used in ``main``.
+1. We created a "String" variable called `name` and initialized it with `Alice`.
+2. We defined a function `print_name` that takes ownership of a `String` and prints it.
+3. We called `print_name(name)`, which moves ownership of `name` into the function.
+4. The last line is commented out because it would cause a compilation error. Once `name` is moved into `print_name`, it can no longer be used in `main`.
 
 To see the ownership principle in action:
 
-Copy this code and run it. It should compile and run without issues.
-Now, uncomment the last line (println!("Name is: {}", name);) and try to compile it again.
-You should see a compilation error saying that name has been moved and can't be used here.
+1. Copy this code and run it. It should compile and run without issues.
+2. Now, uncomment the last line `(println!("Name is: {}", name);)` and try to compile it again.
+3. You should see a compilation error saying that `name` has been moved and can't be used here.
 
 This demonstrates how Rust's ownership system prevents use of variables after they've been moved.
 
@@ -33,8 +33,8 @@ Here, you'll practice borrowing a value without taking ownership.
 
 Now, let's go through what we've done in Exercise 2:
 
-We created a vector of integers called numbers.
-We defined a function print_length that takes a reference to a Vec<i32> (denoted by &Vec<i32>). This means it borrows the vector without taking ownership.
+We created a vector of integers called `numbers`.
+We defined a function `print_length` that takes a reference to a Vec<i32> (denoted by &Vec<i32>). This means it borrows the vector without taking ownership.
 We called print_length(&numbers), passing a reference to our vector.
 After the function call, we print the vector itself.
 
