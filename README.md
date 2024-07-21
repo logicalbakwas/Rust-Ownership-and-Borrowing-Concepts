@@ -134,20 +134,22 @@ Let's break down what we've done in Exercise 5:
 
 Key points to note:
 
-The string_length function takes ownership of the String (not a reference).
-Once my_string is passed to string_length, it can no longer be used in main.
-The function returns a new value (usize) which we can use.
-This pattern is common when you want to consume a value and produce something else.
+- The string_length function takes ownership of the String (not a reference).
+- Once my_string is passed to string_length, it can no longer be used in main.
+- The function returns a new value (usize) which we can use.
+- This pattern is common when you want to consume a value and produce something else.
 
 To see this in action and experiment further:
 
-Run the code as is. It should compile and run without issues.
-Uncomment the line // println!("My string is: {}", my_string); and try to compile the code. You'll see an error because my_string has been moved and is no longer available.
-If you wanted to keep the original string, you could modify string_length to take a reference instead:
-rustCopyfn string_length(s: &String) -> usize {
+1. Run the code as is. It should compile and run without issues.
+2. Uncomment the line `// println!("My string is: {}", my_string);` and try to compile the code. You'll see an error because `my_string` has been moved and is no longer available.
+3. If you wanted to keep the original string, you could modify `string_length` to take a reference instead:
+
+- `fn string_length(s: &String) -> usize {
 s.len()
-}
-And call it with let length = string_length(&my_string);. This would allow you to use my_string after the function call.
+}`
+
+And call it with `let length = string_length(&my_string);`. This would allow you to use `my_string` after the function call.
 
 This exercise demonstrates how Rust's ownership system ensures memory safety by preventing use of moved values, while still allowing flexible patterns of data handling.
 
