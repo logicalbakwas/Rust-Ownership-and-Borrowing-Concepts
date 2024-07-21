@@ -33,8 +33,8 @@ Here, you'll practice borrowing a value without taking ownership.
 
 Now, let's go through what we've done in Exercise 2:
 
-We created a vector of integers called `numbers`.
-We defined a function `print_length` that takes a reference to a Vec<i32> (denoted by &Vec<i32>). This means it borrows the vector without taking ownership.
+1. We created a vector of integers called `numbers`.
+2. We defined a function `print_length` that takes a reference to a `Vec<i32>` (denoted by `&Vec<i32>`). This means it borrows the vector without taking ownership.
 We called print_length(&numbers), passing a reference to our vector.
 After the function call, we print the vector itself.
 
